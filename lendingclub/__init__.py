@@ -1140,7 +1140,7 @@ class Order:
         try:
             # Move to the place order page and get the struts token
             response = self.lc.session.get('/portfolio/placeOrder.action')
-            soup = BeautifulSoup(response.text, "html5lib")
+            soup = BeautifulSoup(response.text)
 
             strut_tag = soup.find('input', {'name': 'struts.token'})
             if strut_tag and strut_tag['value'].strip():
